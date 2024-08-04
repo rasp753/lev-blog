@@ -13,6 +13,7 @@
     <h2>{{ $post->title }}</h2>
     <p>{{ $post->body }}</p>
     <p>作成: {{ $post->created_at }} <br> 更新: {{ $post->updated_at }}</p>
+    <a href="/posts/{{ $post->id }}/edit">編集</a>
     <a href="/posts">戻る</a>
   </article>
 </body>

@@ -31,8 +31,20 @@ class PostController extends Controller
 
     public function store(PostRequest $request, Post $post): RedirectResponse
     {
-        $varidated = $request->validated();
-        $post->fill($varidated['post'])->save();
+        $validated = $request->validated();
+        $post->fill($validated['post'])->save();
+        return redirect('/posts/' . $post->id);
+    }
+
+    public function edit(Post $post): View
+    {
+        return view('posts/edit')->with('post', $post);
+    }
+
+    public function update(PostRequest $request, Post $post): RedirectResponse
+    {
+        $validated = $request->validated();
+        $post->fill($validated['post'])->save();
         return redirect('/posts/' . $post->id);
     }
 }

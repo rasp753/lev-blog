@@ -22,7 +22,9 @@
         <p class="body">
           {{ $post->body }}
         </p>
-        <p>最終更新: {{ $post->updated_at }}</p>
+        <p>最終更新: {{ $post->updated_at }} <br>
+          <a href="/posts/{{ $post->id }}/edit">編集</a>
+        </p>
       </article>
     @endforeach
   </div>
