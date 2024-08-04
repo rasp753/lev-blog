@@ -9,14 +9,16 @@
 
 <body>
   <h1>Blog</h1>
+  <h2><a href="/posts/create">新規記事作成</a></h2>
+  <h2>記事一覧</h2>
   <div class="posts">
     @foreach ($posts as $post)
       <article class="post">
-        <h1 class="title">
+        <h3 class="title">
           <a href=/posts/{{ $post->id }}>
             {{ $post->title }}
           </a>
-        </h1>
+        </h3>
         <p class="body">
           {{ $post->body }}
         </p>

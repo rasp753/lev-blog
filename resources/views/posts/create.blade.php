@@ -14,11 +14,17 @@
     @csrf
     <div class="title">
       <label for="title">タイトル: </label>
-      <input type="text" name="post[title]" id="title">
+      <input type="text" name="post[title]" id="title", value="{{ old('post.title') }}">
+      @error('post.title')
+        <p>タイトルは必須です。</p>
+      @enderror
     </div>
     <div class="body">
       <label for="body">本文</label>
-      <textarea name="post[body]" id="body" cols="30" rows="10"></textarea>
+      <textarea name="post[body]" id="body" cols="30" rows="10">{{ old('post.body') }}</textarea>
+      @error('post.body')
+        <p>本文は必須です</p>
+      @enderror
     </div>
     <button type="submit">送信</button>
   </form>
