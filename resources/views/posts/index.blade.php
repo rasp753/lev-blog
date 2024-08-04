@@ -24,6 +24,11 @@
         </p>
         <p>最終更新: {{ $post->updated_at }} <br>
           <a href="/posts/{{ $post->id }}/edit">編集</a>
+          <a href="#" onclick="deletePostAfterConfirmed({{ $post->id }})">削除</a>
+        <form action="/posts/{{ $post->id }}" method="post" id="post_{{ $post->id }}">
+          @csrf
+          @method('DELETE')
+        </form>
         </p>
       </article>
     @endforeach
@@ -31,6 +36,14 @@
   <div class="Pagination">
     {{ $posts->links() }}
   </div>
+
+  <script>
+    function deletePostAfterConfirmed(postId) {
+      if (window.confirm("本当に記事を削除しますか？")) {
+        document.querySelector(`#post_${postId}`).submit();
+      }
+    }
+  </script>
 </body>
 
 </html>

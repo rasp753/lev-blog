@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -46,5 +45,11 @@ class PostController extends Controller
         $validated = $request->validated();
         $post->fill($validated['post'])->save();
         return redirect('/posts/' . $post->id);
+    }
+
+    public function delete(Post $post): RedirectResponse
+    {
+        $post->delete();
+        return redirect('/posts');
     }
 }
