@@ -8,12 +8,14 @@
 </head>
 
 <body>
-  <h1>Blog Page</h1>
+  <h1>Blog</h1>
   <div class="posts">
     @foreach ($posts as $post)
       <article class="post">
         <h1 class="title">
-          {{ $post->title }}
+          <a href=/posts/{{ $post->id }}>
+            {{ $post->title }}
+          </a>
         </h1>
         <p class="body">
           {{ $post->body }}
@@ -22,7 +24,7 @@
       </article>
     @endforeach
   </div>
-  <div class="pagination">
+  <div class="Pagination">
     {{ $posts->links() }}
   </div>
 </body>
