@@ -13,13 +13,17 @@
     @foreach ($posts as $post)
       <article class="post">
         <h1 class="title">
-          "test"
+          {{ $post->title }}
         </h1>
         <p class="body">
           {{ $post->body }}
         </p>
+        <p>最終更新: {{ $post->updated_at }}</p>
       </article>
     @endforeach
+  </div>
+  <div class="pagination">
+    {{ $posts->links() }}
   </div>
 </body>
 
