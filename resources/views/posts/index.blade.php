@@ -8,6 +8,15 @@
 </head>
 
 <body>
+  <div>
+    @foreach ($questions as $question)
+      <div>
+        <a href="https://teratail.com/questions/{{ $question['id'] }}">
+          {{ $question['title'] }}
+        </a>
+      </div>
+    @endforeach
+  </div>
   <h1>Blog</h1>
   <h2><a href="/posts/create">新規記事作成</a></h2>
   <h2>記事一覧</h2>
@@ -39,6 +48,8 @@
   <div class="Pagination">
     {{ $posts->links() }}
   </div>
+
+
 
   <script>
     function deletePostAfterConfirmed(postId) {

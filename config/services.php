@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'teratail' => [
+        'token' => env('TERATAIL_ACCESS_TOKEN'),
+    ],
+
 ];
