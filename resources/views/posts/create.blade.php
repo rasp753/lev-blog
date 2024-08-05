@@ -26,6 +26,14 @@
         <p>本文は必須です</p>
       @enderror
     </div>
+    <div class="category">
+      <label for="category">カテゴリー</label>
+      <select name="post[category_id]" id="category">
+        @foreach ($categories as $category)
+          <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+      </select>
+    </div>
     <button type="submit">送信</button>
   </form>
   <a href="/posts">戻る</a>

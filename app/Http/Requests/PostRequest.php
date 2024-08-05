@@ -15,7 +15,8 @@ class PostRequest extends FormRequest
     {
         return [
             'post.title' => 'required|max:100',
-            'post.body' => 'required|max:4000'
+            'post.body' => 'required|max:4000',
+            'post.category_id' => 'required'
         ];
     }
 }

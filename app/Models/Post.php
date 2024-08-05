@@ -4,17 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'body', 'category_id'];
 
-    public function getPaginateByLimit(int $limitCount = 10)
+    public function Category(): BelongsTo
     {
-        return $this->orderBy('updated_at', 'desc')->paginate($limitCount);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function getPaginateByLimit(int $limitCount = 10): LengthAwarePaginator
+    {
+        return $this->with('category')->orderBy('updated_at', 'desc')->paginate($limitCount);
     }
 }

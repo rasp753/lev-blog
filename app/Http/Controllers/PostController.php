@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -23,9 +24,9 @@ class PostController extends Controller
         return view('posts/show')->with('post', $post);
     }
 
-    public function create(): View
+    public function create(Category $category): View
     {
-        return view('posts/create');
+        return view('posts/create')->with('categories', $category->all());
     }
 
     public function store(PostRequest $request, Post $post): RedirectResponse

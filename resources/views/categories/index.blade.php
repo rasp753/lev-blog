@@ -10,7 +10,7 @@
 <body>
   <h1>Blog</h1>
   <h2><a href="/posts/create">新規記事作成</a></h2>
-  <h2>記事一覧</h2>
+  <h2>記事一覧 (カテゴリー: {{ $posts[0]->category->name }})</h2>
   <div class="posts">
     @foreach ($posts as $post)
       <article class="post">
@@ -38,6 +38,9 @@
   </div>
   <div class="Pagination">
     {{ $posts->links() }}
+  </div>
+  <div>
+    <a href="/posts">戻る</a>
   </div>
 
   <script>

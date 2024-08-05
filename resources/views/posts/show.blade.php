@@ -11,6 +11,7 @@
   <h1>Blog</h1>
   <article>
     <h2>{{ $post->title }}</h2>
+    <p>カテゴリー: {{ $post->category->name }}</p>
     <p>{{ $post->body }}</p>
     <p>作成: {{ $post->created_at }} <br> 更新: {{ $post->updated_at }}</p>
     <a href="/posts/{{ $post->id }}/edit">編集</a>
