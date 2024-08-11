@@ -49,6 +49,10 @@
     {{ $posts->links() }}
   </div>
 
+  <div>
+    <p>{{ Auth::user()->name }}</p>
+  </div>
+
 
 
   <script>
